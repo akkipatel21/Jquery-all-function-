@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.js"></script>
+<link rel="stylesheet" href="mylib/bootstrap.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<style>
+.container{
+  margin: 20px 0;
+}
+
+</style>
+</head>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[id^=edit]').keypress(validateNumber);
+});
+
+function validateNumber(event) {
+    var key = window.event ? event.keyCode : event.which;
+    if (event.keyCode === 8 || event.keyCode === 46) {
+        return true;
+    } else if ( key < 48 || key > 57 ) {
+        return false;
+    } else {
+    	return true;
+    }
+};
+    
+</script>
+
+
+      <body ng-app="myapp" ng-controller="ListController">     
+      <script>
+      var app = angular.module("myapp", []);
+      app.controller("ListController", ['$scope', function($scope) {
+          
+          $scope.personalDetails = [];
+          
+           $scope.addNew = function(personalDetails){
+             $scope.personalDetails.push({ 
+                      'fname': personalDetails.fname, 
+                      'lname': personalDetails.lname,
+                     /*  'email': personalDetails.email, */
+                       'phone': personalDetails.phone, 
+                  });
+                 
+              };
+          
+            }]);
+      
+      </script>
+    <div class="container">
+       
+                        <form ng-submit="addNew(personalDetails)" target="blank" action="register" method="post">
+                  
+                            <div class="form-group">
+                                <input type="text" style="width:500px;" name="firstname" class="form-control" placeholder="First name" ng-model="personalDetails.fname" required>   
+                            </div>
+                            <div class="form-group">
+                                <input type="text" style="width:500px;" name="lastname" class="form-control" placeholder="Last name" ng-model="personalDetails.lname" required>   
+                            </div>
+                            <div class="form-group">
+                                <input type="text"  id="edit1" style="width:500px;" name="phone" class="form-control"  placeholder="Phone no. (7565939005)" ng-model="personalDetails.phone" maxlength="10" required / >  
+                            </div>
+                            <div class="clearfix">
+                                <input type="submit" value="Submit" class="btn btn-primary"> 
+                                <input type="reset" value="reset" class="btn btn-primary" style=" background-color: #008000; position: relative;">    
+                                                    
+                            </div>
+                                             
+                        </form>
+        
+        </div>
+		
+        <div class="row" ng-hide="!personalDetails.length">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+						<tr ng-repeat="personalDetail in personalDetails">
+
+							<td>{{personalDetail.fname}}</td>
+							<td>{{personalDetail.lname}}</td>
+							<td>{{personalDetail.phone}}</td>
+						</tr>
+					</tbody>
+                </table>
+          
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
