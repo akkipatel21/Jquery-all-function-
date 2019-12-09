@@ -5,25 +5,23 @@
     
     ----------------------------javascript------------------------------
 
- $.ajax({
-            type : 'GET',
-            url : '${pageContext.request.contextPath}/getdistrictnew?stname='+selectedStateID,
-            dataType: 'json',                
-            success : function(response) {
-                     var options = '<option value="' + "--Select--" + '">'+ "--Select--" + '</option>';
-                    for ( var i = 0; i < response.length; i++) {
-                            options += '<option value="' + response[i].districtname + '" districtname="'+response[i].districtname+'">'
-                            + response[i].districtname + '</option>';
-                    }
-                            $("select#dist").html(options);
-                    
-               
-            } 
-    });
+$('#application_status').val('');
+			$.ajax({
+				type : 'GET',
+				url : '${pageContext.request.contextPath}/getallcatecoryinfobyuserid?userId='+userId,
+				dataType: 'json',
+				success : function(response) {
+					$('#application_number').empty();
+					$('#application_number').append('<option value="">Select Application</option>');
+					var data = response;
+					$.each(data,function(key,value) {
+						$('#application_number').append($('<option value="'+value.c_id+'" name="'+value.application_number+'">'+value.application_number+'</option>'));
+					});
+				}
+			});
     
   -----------------------------jsp-----------------------------
     
-    <div class="form-group">
-        <label> Select State</label>
-           <select name="state" id="state" style="width: 200px;height: 35px;" onchange="getdistrict()"   > </select>
-      </div>
+  <select required="required" class="form-control" name="application_number" id="application_number" onchange="getApplicationStatusById();" >
+						<option value="">Select Application</option>
+                 	</select> 
