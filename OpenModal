@@ -1,0 +1,33 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  
+  
+  <Script>
+  jQuery('#pop').trigger('click');
+  ----</script>---
+  
+  
+  
+  <body>
+  
+  
+  <input id="pop" type="hidden" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-1">
+  
+  
+<div class="modal fade" id="modal-1" >
+  <div class="modal-dialog">
+    <div class="modal-content" style="margin-top: 150px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Plesae Wait</h4>
+      </div>
+      <div class="modal-body">
+        <p>Your data is uploading...!</p>
+       <a href="#modal-2" data-toggle="modal" data-dismiss="modal"></a>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->  
