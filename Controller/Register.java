@@ -36,7 +36,6 @@ public class Register extends HttpServlet {
 		
 			
 		}catch (Exception e2) {System.out.println(e2);}
-		
 		out.close();
 	
 	}
