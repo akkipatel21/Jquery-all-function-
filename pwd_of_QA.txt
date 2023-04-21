@@ -1,0 +1,18 @@
+
+=================================
+Nifi
+uname: nifiUser
+pwd: UWvKvFn4uza6Hg8f
+
+=================================
+QA
+Username:	akashb21
+Account:	https://autoworx-qa.uit.yorku.ca/design/
+Password:	Admin@123
+
+=================================
+Docker:
+username: admin
+Pwd: vxYZ}AJ5@d-7
+
+=================================
